@@ -54,4 +54,46 @@ public class LocationDAO {
 		DBConnection.disConnection(con, st, set);
 		return locationDTO;
 	}
+	
+	public int add(LocationDTO locationDTO) throws Exception {
+		Connection con = DBConnection.getConnection();
+		String sql = "INSERT INTO LOCATIONS (LOCATION_ID, STREET_ADDRESS, POSTAL_CODE, CITY)"
+				+ "VALUES (LOCATIONS_SEQ.NEXTVAL,?,?,?)";
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setString(1, locationDTO.getStreeat_address());
+		st.setString(2, locationDTO.getPostal_code());
+		st.setString(3, locationDTO.getCity());
+		
+		int result = st.executeUpdate();
+		
+		DBConnection.disConnection(con, st);
+		
+		return result;
+	}
+	
+	public int update(LocationDTO locationDTO) throws Exception {
+		Connection con = DBConnection.getConnection();
+		String sql = "UPDATE LOCATIONS SET STREET_ADDRESS = ? WHERE LOCATION_ID = ? ";
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setString(1, locationDTO.getStreeat_address());
+		st.setInt(2, locationDTO.getLocation_id());
+		
+		int result = st.executeUpdate();
+		
+		return result;
+	}
+	
+	public int delete(LocationDTO locationDTO) throws Exception {
+		Connection con = DBConnection.getConnection();
+		String sql = "DELETE LOCATIONS WHERE LOCATION_ID = ? ";
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setInt(1, locationDTO.getLocation_id());
+		
+		int result = st.executeUpdate();
+		
+		return result;
+	}
 }

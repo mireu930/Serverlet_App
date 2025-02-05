@@ -16,7 +16,7 @@ public class DepartmentDAO {
 		System.out.println("부서리스트 조회");
 		
 		Connection con = DBConnection.getConnection();
-		String sql = "SELECT * FROM DEPARTMENTS";
+		String sql = "SELECT * FROM DEPARTMENTS ORDER BY DEPARTMENT_ID DESC";
 		PreparedStatement st = con.prepareStatement(sql);
 		ResultSet resultSet = st.executeQuery();
 		
@@ -63,7 +63,7 @@ public class DepartmentDAO {
 		int result = 0;
 		Connection connection = DBConnection.getConnection();
 		String sql = "INSERT INTO DEPARTMENTS (DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID) "
-				+ "VALUES (DEPARTMENT_SEQ.NEXTVAL,?,?)";
+				+ "VALUES (DEPARTMENTS_SEQ.NEXTVAL,?,?)";
 		PreparedStatement st = connection.prepareStatement(sql);
 				
 		st.setString(1, dto.getDepartment_name());

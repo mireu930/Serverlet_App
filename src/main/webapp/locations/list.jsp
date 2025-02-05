@@ -50,5 +50,6 @@ tbody a {
 			<%}%>
 		</tbody>
 	</table>
+	<a href = "./add.jsp">지역등록</a>
 </body>
 </html>

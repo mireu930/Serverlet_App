@@ -15,9 +15,8 @@
 <body>
 	<h3>add</h3>
 	<form action = "./addProcess.jsp" method ="post">
-		<input type = "text">
-		<input type = "text">
-		<input type = "text">
+		<input type = "text" name = "department_name" value = "test">
+		<input type = "text" name = "manager_id" value = "test2">
 		
 		<input type = "submit" value ="등록">
 				
