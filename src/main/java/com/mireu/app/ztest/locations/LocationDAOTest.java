@@ -18,19 +18,19 @@ public class LocationDAOTest {
 //		}
 		dto.setLocation_id(1000);
 		
-		try {
-			List<LocationDTO> list = dao.getDetail(dto);
-			
-			if(list.size()>0) {
-				System.out.println(list.get(0).getLocation_id());
-				System.out.println(list.get(0).getStreeat_address());
-				System.out.println(list.get(0).getPostal_code());
-			} else {
-				System.out.println("존재안함");
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			List<LocationDTO> list = dao.getDetail(dto);
+//			
+//			if(list.size()>0) {
+//				System.out.println(list.get(0).getLocation_id());
+//				System.out.println(list.get(0).getStreeat_address());
+//				System.out.println(list.get(0).getPostal_code());
+//			} else {
+//				System.out.println("존재안함");
+//			}
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 }

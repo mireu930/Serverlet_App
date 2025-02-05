@@ -43,7 +43,7 @@ public class DepartmentController extends HttpServlet {
 		if(uri.equals("/list.do")) {
 //		dao.getList();
 		} else {
-		dao.getDetail();
+//		dao.getDetail();
 		}
 	}
 	

@@ -31,7 +31,7 @@ public class LocationDAO {
 		return list;
 	}
 	
-	public List<LocationDTO> getDetail(LocationDTO locationDTO) throws Exception {
+	public LocationDTO getDetail(LocationDTO locationDTO) throws Exception {
 		System.out.println("한 지역정보 조회");
 		
 		Connection con = DBConnection.getConnection();
@@ -42,19 +42,16 @@ public class LocationDAO {
 		
 		ResultSet set = st.executeQuery();
 		
-		List<LocationDTO> list = new ArrayList<LocationDTO>();
 		
-		if
-		(set.next()) {
-			LocationDTO dto = new LocationDTO();
-			dto.setLocation_id(set.getInt(1));
-			dto.setStreeat_address(set.getString(2));
-			dto.setPostal_code(set.getString(3));
-			
-			list.add(dto);
+		if(set.next()) {
+			locationDTO.setLocation_id(set.getInt(1));
+			locationDTO.setStreeat_address(set.getString(2));
+			locationDTO.setPostal_code(set.getString(3));
+		} else {
+			locationDTO = null;
 		}
 		
 		DBConnection.disConnection(con, st, set);
-		return list;
+		return locationDTO;
 	}
 }

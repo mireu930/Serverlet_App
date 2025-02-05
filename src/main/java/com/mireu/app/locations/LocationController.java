@@ -44,6 +44,7 @@ public class LocationController extends HttpServlet {
 //		StringBuffer sb = request.getRequestURL();
 //		System.out.println(sb.toString());
 			String uri = request.getRequestURI();
+			String depart = request.getParameter("department_id");
 //		System.out.println(uri);
 
 			uri = this.setSubString(uri);
@@ -76,46 +77,48 @@ public class LocationController extends HttpServlet {
 				p.println("</table>");
 
 				p.close();
-			} else if (uri.equals("/detail.do")) {
-				p.println("<html>");
-				p.println("<head><title>Location Form</title></head>");
-				p.println("<body>");
-				p.println("<h1>Submit Location</h1>");
-				p.println("<form action='/locationController' method='get'>");
-				p.println("<input type='text' name='location' placeholder='Enter location'>");
-				p.println("<input type='submit' value='Submit'>");
-				p.println("</form>");
-				p.println("</body>");
-				p.println("</html>");
+			} 
+//				else if (uri.equals("/detail.do")) {
+//				p.println("<html>");
+//				p.println("<head><title>Location Form</title></head>");
+//				p.println("<body>");
+//				p.println("<h1>Submit Location</h1>");
+//				p.println("<form action='/locationController' method='get'>");
+//				p.println("<input type='text' name='location' placeholder='Enter location'>");
+//				p.println("<input type='submit' value='Submit'>");
+//				p.println("</form>");
+//				p.println("</body>");
+//				p.println("</html>");
 
-				String locationInput = request.getParameter("location");
+//				String locationInput = request.getParameter("location");
 //				Integer.parseInt(locationInput);
-				if (locationInput != null) {
-					LocationDTO dto = new LocationDTO();
-					dto.setLocation_id(Integer.parseInt(locationInput));
-					System.out.println(locationInput);
-					List<LocationDTO> list = dao.getDetail(dto);
-					for (int i = 0; i < list.size(); i++) {
-						p.println("<table border = 1>");
-						p.println("<thead>");
-						p.println("<tr>");
-						p.println("<th>id</th>");
-						p.println("<th>address</th>");
-						p.println("<th>code</th>");
-						p.println("</tr>");
-						p.println("</thead>");
-						p.println("<tbody>");
-						p.println("<tr>");
-						p.println("<td>" + list.get(i).getLocation_id() + "</td>");
-						p.println("<td>" + list.get(i).getStreeat_address() + "</td>");
-						p.println("<td>" + list.get(i).getPostal_code() + "</td>");
-						p.println("</tr>");
-						p.println("</tbody>");
-						p.println("</table>");
-					}
+//				if (locationInput != null) {
+//					LocationDTO dto = new LocationDTO();
+//					dto.setLocation_id(Integer.parseInt(locationInput));
+//					System.out.println(locationInput);
+//					List<LocationDTO> list = dao.getDetail(dto);
+//					for (int i = 0; i < list.size(); i++) {
+//						p.println("<table border = 1>");
+//						p.println("<thead>");
+//						p.println("<tr>");
+//						p.println("<th>id</th>");
+//						p.println("<th>address</th>");
+//						p.println("<th>code</th>");
+//						p.println("</tr>");
+//						p.println("</thead>");
+//						p.println("<tbody>");
+//						p.println("<tr>");
+//						p.println("<td>" + list.get(i).getLocation_id() + "</td>");
+//						p.println("<td>" + list.get(i).getStreeat_address() + "</td>");
+//						p.println("<td>" + list.get(i).getPostal_code() + "</td>");
+//						p.println("</tr>");
+//						p.println("</tbody>");
+//						p.println("</table>");
+//					}
 				}
-			}
-		} catch (Exception e) {
+//			}
+//		}
+	catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

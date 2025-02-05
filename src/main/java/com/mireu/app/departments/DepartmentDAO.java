@@ -34,8 +34,45 @@ public class DepartmentDAO {
 		return list;
 	}
 	
-	public void getDetail() {
+	public DepartmentDTO getDetail(DepartmentDTO departmentDTO) throws Exception {
 		//DB에서 하나의 부서정보를 조회
 		System.out.println("하나의 정보 조회");
+		
+		Connection con = DBConnection.getConnection();
+		String sql = "SELECT * FROM DEPARTMENTS WHERE DEPARTMENT_ID = ? ";
+		PreparedStatement st = con.prepareStatement(sql);
+		
+		st.setLong(1, departmentDTO.getDepartment_id());
+		
+		ResultSet resultSet = st.executeQuery();
+		
+		
+		if(resultSet.next()) {
+			departmentDTO.setDepartment_id(resultSet.getLong(1));
+			departmentDTO.setDepartment_name(resultSet.getString(2));
+			departmentDTO.setManager_id(resultSet.getLong(3));
+		} else {
+			departmentDTO = null;
+		}
+		 DBConnection.disConnection(con, st, resultSet);
+		
+		return departmentDTO;
+	}
+	
+	public int add(DepartmentDTO dto) throws Exception {
+		int result = 0;
+		Connection connection = DBConnection.getConnection();
+		String sql = "INSERT INTO DEPARTMENTS (DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID) "
+				+ "VALUES (DEPARTMENT_SEQ.NEXTVAL,?,?)";
+		PreparedStatement st = connection.prepareStatement(sql);
+				
+		st.setString(1, dto.getDepartment_name());
+		st.setLong(2, dto.getManager_id());
+		
+		result = st.executeUpdate();
+		
+		DBConnection.disConnection(connection, st);
+		
+		return result;
 	}
 }
