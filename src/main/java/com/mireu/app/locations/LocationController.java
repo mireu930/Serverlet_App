@@ -81,7 +81,7 @@ public class LocationController extends HttpServlet {
 				p.println("<head><title>Location Form</title></head>");
 				p.println("<body>");
 				p.println("<h1>Submit Location</h1>");
-				p.println("<form action='/LocationController' method='get'>");
+				p.println("<form action='/locationController' method='get'>");
 				p.println("<input type='text' name='location' placeholder='Enter location'>");
 				p.println("<input type='submit' value='Submit'>");
 				p.println("</form>");
