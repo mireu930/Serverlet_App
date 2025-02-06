@@ -25,6 +25,8 @@ table, table th, table td {
 </head>
 <body>
 	<h1>Department Detail Page</h1>
+	<div>
+	</div>
 	<table>
 	<%if (departmentDTO != null) {%>
 		<thead>
@@ -32,17 +34,20 @@ table, table th, table td {
 				<th>디테일</th>
 				<th>디테일2</th>
 				<th>디테일3</th>
+				<th>디테일4</th>
+				<th>디테일5</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
 				<td><%=departmentDTO.getDepartment_id()%></td>
 				<td><%=departmentDTO.getDepartment_name()%></td>
-				<td><%=departmentDTO.getManager_id()%></td>
+				<td><%=departmentDTO.getManager_id()%></td>												
+				<td><a href ="./deleteProcess.jsp?department_id=<%= departmentDTO.getDepartment_id()%>">삭제</a></td>
+				<td><a href = "./updateProcess.jsp?department_id=<%= departmentDTO.getDepartment_id()%>">수정</a></td>
 				<%} else {%>
 				없는부서입니다.
 				<%}%>
-				</td>
 		</tbody>
 	</table>
 </body>

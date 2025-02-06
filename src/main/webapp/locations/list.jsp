@@ -42,10 +42,10 @@ tbody a {
 		<tbody>
 			<%for (int i = 0; i < list.size(); i++) {%>
 			<tr>
-				<td><%=list.get(i).getLocation_id()%></td>
 				<td><a
-					href="detail.jsp?location_id=<%= list.get(i).getLocation_id()%>">
-						<%= list.get(i).getLocation_id()%></a></td>
+					href="detail.jsp?location_id=<%= list.get(i).getLocation_id()%>"><%=list.get(i).getLocation_id()%></a></td>
+				<td>
+					<%= list.get(i).getStreeat_address()%></td>
 			</tr>
 			<%}%>
 		</tbody>

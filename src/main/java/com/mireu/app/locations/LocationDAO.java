@@ -74,13 +74,17 @@ public class LocationDAO {
 	
 	public int update(LocationDTO locationDTO) throws Exception {
 		Connection con = DBConnection.getConnection();
-		String sql = "UPDATE LOCATIONS SET STREET_ADDRESS = ? WHERE LOCATION_ID = ? ";
+		String sql = "UPDATE LOCATIONS SET STREET_ADDRESS = ?, POSTAL_CODE = ? "
+				+ "WHERE LOCATION_ID = ? ";
 		PreparedStatement st = con.prepareStatement(sql);
 		
 		st.setString(1, locationDTO.getStreeat_address());
-		st.setInt(2, locationDTO.getLocation_id());
+		st.setString(2, locationDTO.getPostal_code());
+		st.setInt(3, locationDTO.getLocation_id());
 		
 		int result = st.executeUpdate();
+		
+		DBConnection.disConnection(con, st);
 		
 		return result;
 	}
@@ -93,6 +97,8 @@ public class LocationDAO {
 		st.setInt(1, locationDTO.getLocation_id());
 		
 		int result = st.executeUpdate();
+		
+		DBConnection.disConnection(con, st);
 		
 		return result;
 	}

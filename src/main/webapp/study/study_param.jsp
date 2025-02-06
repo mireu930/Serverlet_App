@@ -10,7 +10,7 @@
 	<form action ="./study_paramPeocess.jsp" method ="get">
 		<div>
 		<!-- disabled 파리미터 사용 x -->
-		<!-- readonly 파리미터 사용 o-->
+		<!-- readonly 파리미터 사용 o -->
 		<input type ="text" name ="p1" value ="p1_data" readonly>
 		</div>
 		<div>
