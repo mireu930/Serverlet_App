@@ -9,6 +9,8 @@ import java.util.List;
 
 import com.mireu.app.utils.DBConnection;
 
+import oracle.jdbc.proxy.annotation.Pre;
+
 public class CountryDAO {
 	
 	public List<CountryDTO> getList(CountryDTO countryDTO) throws Exception {
@@ -93,8 +95,14 @@ public class CountryDAO {
 	public int delete(CountryDTO countryDTO) throws Exception {
 		int result = 0;
 		Connection connection = DBConnection.getConnection();
+		String sql = "DELETE COUNTRIES WHERE COUNTRY_ID = ?";
+		PreparedStatement st = connection.prepareStatement(sql);
 		
+		st.setString(1, countryDTO.getCountry_id());
 		
+		result = st.executeUpdate();
+		
+		DBConnection.disConnection(connection, st);
 		
 		return result;
 	}
