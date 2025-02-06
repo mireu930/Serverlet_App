@@ -1,15 +1,23 @@
+<%@page import="com.mireu.app.locations.LocationDTO"%>
+<%@page import="com.mireu.app.locations.LocationDAO"%>
 <%@page import="com.mireu.app.departments.DepartmentDTO"%>
 <%@page import="com.mireu.app.departments.DepartmentDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-     DepartmentDAO departmentDAO = new DepartmentDAO();
-    DepartmentDTO departmentDTO = new DepartmentDTO();
+     LocationDAO locationDAO = new LocationDAO();
+    LocationDTO locationDTO = new LocationDTO();
     
     String id = request.getParameter("location_id");
-    departmentDTO.setLocation_id(Integer.parseInt(id));
+    locationDTO.setLocation_id(Integer.parseInt(id));
     
-    int result = departmentDAO.delete(departmentDTO);
+    int result = locationDAO.delete(locationDTO);
+    
+    String message = "실패";
+    
+    if(result>0){
+    	message = "성공";	
+    }
     %>
 <!DOCTYPE html>
 <html>
@@ -19,12 +27,8 @@
 </head>
 <body>
 	<h3>삭제</h3>
-	
-	<%if(result > 0) {%>
-	<h3>삭제되었습니다</h3>
-	<%}else {%>
-	<h3>실패했습니다</h3>
-	<% } %>
+	<%=message %>
 	<a href = "/">Home</a>
+	<a href = "./list.jsp">list</a>
 </body>
 </html>
