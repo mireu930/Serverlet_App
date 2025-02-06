@@ -57,7 +57,7 @@ public class CountryDAO {
 		int result = 0;
 		Connection connection = DBConnection.getConnection();
 		String sql = "INSERT INTO COUNTRIES(COUNTRY_ID, COUNTRY_NAME, REGION_ID)"
-				+ " VALUES ?, ?, ?";
+				+ " VALUES (?, ?, ?)";
 		PreparedStatement st = connection.prepareStatement(sql);
 		
 		st.setString(1, countryDTO.getCountry_id());
@@ -93,8 +93,14 @@ public class CountryDAO {
 	public int delete(CountryDTO countryDTO) throws Exception {
 		int result = 0;
 		Connection connection = DBConnection.getConnection();
+		String sql = "DELETE COUNTRIES WHERE COUNTRY_ID = ?";
+		PreparedStatement st = connection.prepareStatement(sql);
 		
+		st.setString(1, countryDTO.getCountry_id());
 		
+		result = st.executeUpdate();
+		
+		DBConnection.disConnection(connection, st);
 		
 		return result;
 	}
