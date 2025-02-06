@@ -13,6 +13,7 @@
 </head>
 <body>
 	<h1>Welcome Home page</h1>
+	<h1>Team Mate Add</h1>
 	<a href = "/departmets/departmentList.jsp">Department list</a><br>
 	<a href = "locations/locationList.jsp">Location list</a><br>
 	<a href = "./naver_sports/sports.jsp">½ºÆ÷Ã÷</a>
