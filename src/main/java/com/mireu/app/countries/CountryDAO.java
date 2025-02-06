@@ -26,13 +26,23 @@ public class CountryDAO {
 			ar.add(countryDTO);
 		}
 		
-		DBConnection.disConnect(rs, st, connection);
+		DBConnection.disConnection(rs, st, connection);
 		
 		return ar;
 	}
 	
 	
-	public CountryDTO getDetail(CountryDTO countryDTO) {
+	public CountryDTO getDetail(CountryDTO countryDTO) throws Exception {
+		Connection connection = DBConnection.getConnection();
+		String sql = "SELECT * FROM COUNTRIES WHERE COUNTRY_ID = ?";
+		PreparedStatement st = connection.prepareStatement(sql);
+		ResultSet rs = st.executeQuery();
+		
+		if(rs.next()) {
+			countryDTO.setCountry_id(rs.getString("COUNTRY_ID"));
+			countryDTO.setCountry_name(rs.getString("COUNTRY_NAME"));
+			countryDTO.setRegion_id(Integer.parseInt(rs.getString("REGION_ID")));
+		}
 		
 		
 		return countryDTO;
