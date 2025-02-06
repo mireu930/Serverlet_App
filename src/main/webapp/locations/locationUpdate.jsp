@@ -17,7 +17,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action = "./updateProcess.jsp" method = "post">
+	<form action = "./locationUpdateProcess.jsp" method = "post">
 		<input type = "hidden" name = "location_id" value = "<%= locationDTO.getLocation_id()%>">
 		<input type = "text" name = "streeat_address" value = "<%=locationDTO.getStreeat_address() %>">
 		<input type = "text" name = "postal_code" value = "<%= locationDTO.getPostal_code()%>">

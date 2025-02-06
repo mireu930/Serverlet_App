@@ -14,7 +14,7 @@
 </head>
 <body>
 	<h3>add</h3>
-	<form action = "./addProcess.jsp" method ="post">
+	<form action = "./departmentAddProcess.jsp" method ="post">
 		<input type = "text" name = "department_name" value = "test">
 		<input type = "text" name = "manager_id" value = "test2">
 		

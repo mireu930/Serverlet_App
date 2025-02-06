@@ -47,7 +47,7 @@ tbody a {
 			<tr>
 				<td><%= ar.get(i).getDepartment_id()%></td>
 				<td><a
-					href="detail.jsp?department_id=<%= ar.get(i).getDepartment_id()%>">
+					href="departmentDetail.jsp?department_id=<%= ar.get(i).getDepartment_id()%>">
 						<%= ar.get(i).getDepartment_name()%></a></td>
 			</tr>
 			<%}%>
@@ -55,7 +55,7 @@ tbody a {
 	</table>
 
 	<div>
-		<a href="add.jsp">부서등록</a>
+		<a href="departmentAdd.jsp">부서등록</a>
 	</div>
 </body>
 </html>

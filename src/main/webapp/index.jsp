@@ -5,11 +5,17 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<style>
+	a {
+		text-decoration: none;
+	}
+</style>
 </head>
 <body>
 	<h1>Home page</h1>
-	<a href = "/departmets/list.jsp">Department list</a><br>
-	<a href = "locations/list.jsp">Location list</a>
+	<a href = "/departmets/departmentList.jsp">Department list</a><br>
+	<a href = "locations/locationList.jsp">Location list</a><br>
+	<a href = "./naver_sports/sports.jsp">스포츠</a>
 	
 </body>
 </html>

@@ -27,6 +27,6 @@
 		실패했습니다.
 	<%} %>
 	<a href = "/">Home</a>
-		<a href = "./list.jsp">부서리스트</a>
+		<a href = "./departmnetList.jsp">부서리스트</a>
 </body>
 </html>

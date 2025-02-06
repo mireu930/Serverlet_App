@@ -21,6 +21,10 @@ table, table th, table td {
 	border-collapse: collapse;
 	text-align: center;
 }
+td a {
+	text-decoration: none;
+	color: black;
+}
 </style>
 </head>
 <body>
@@ -31,11 +35,11 @@ table, table th, table td {
 	<%if (departmentDTO != null) {%>
 		<thead>
 			<tr>
-				<th>디테일</th>
-				<th>디테일2</th>
-				<th>디테일3</th>
-				<th>디테일4</th>
-				<th>디테일5</th>
+				<th>부서번호</th>
+				<th>부서명</th>
+				<th>매니저id</th>
+				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -43,8 +47,8 @@ table, table th, table td {
 				<td><%=departmentDTO.getDepartment_id()%></td>
 				<td><%=departmentDTO.getDepartment_name()%></td>
 				<td><%=departmentDTO.getManager_id()%></td>												
-				<td><a href ="./deleteProcess.jsp?department_id=<%= departmentDTO.getDepartment_id()%>">삭제</a></td>
-				<td><a href = "./updateProcess.jsp?department_id=<%= departmentDTO.getDepartment_id()%>">수정</a></td>
+				<td><a href ="./departmentDeleteProcess.jsp?department_id=<%= departmentDTO.getDepartment_id()%>">삭제</a></td>
+				<td><a href = "./departmentUpdateProcess.jsp?department_id=<%= departmentDTO.getDepartment_id()%>">수정</a></td>
 				<%} else {%>
 				없는부서입니다.
 				<%}%>

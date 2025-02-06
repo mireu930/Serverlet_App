@@ -33,6 +33,6 @@
 <body>
 	<h3><%= r %></h3>
 	<a href = "/">home</a>
-	<a href = "./list.jsp">list</a>
+	<a href = "./departmnetList.jsp">list</a>
 </body>
 </html>

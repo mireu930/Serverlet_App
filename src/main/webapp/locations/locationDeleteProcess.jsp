@@ -29,6 +29,6 @@
 	<h3>삭제</h3>
 	<%=message %>
 	<a href = "/">Home</a>
-	<a href = "./list.jsp">list</a>
+	<a href = "./locationList.jsp">list</a>
 </body>
 </html>

@@ -37,8 +37,8 @@ table, table th, table td {
 			<tr>
 				<td><%=dto.getLocation_id()%></td>
 				<td><%=dto.getStreeat_address()%></td>
-				<td><a href = "./deleteProcess.jsp?location_id=<%=dto.getLocation_id()%>">삭제</a></td>
-				<td><a href ="./update.jsp?location_id=<%=dto.getLocation_id()%>">수정</a></td>
+				<td><a href = "./locationDeleteProcess.jsp?location_id=<%=dto.getLocation_id()%>">삭제</a></td>
+				<td><a href ="./locationUpdate.jsp?location_id=<%=dto.getLocation_id()%>">수정</a></td>
 				<%} else {%>
 				<h3>없는 아이디입니다.</h3>
 				<%}%>

@@ -19,7 +19,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action ="./update.jsp" method ="post">
+	<form action ="./departmentUpdate.jsp" method ="post">
 		<input type ="hidden" name = "department_id" value = "<%= departmentDTO.getDepartment_id()%>">
 		부서<input type = "text" name ="department_name" value = "<%= departmentDTO.getDepartment_name()%>"><br>
 		매니저id<input type = "text" name ="manager_id" value = "<%= departmentDTO.getManager_id()%>"><br>
