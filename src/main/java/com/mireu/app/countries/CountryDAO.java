@@ -26,6 +26,7 @@ public class CountryDAO {
 			ar.add(countryDTO);
 		}
 		
+		DBConnection.disConnect(rs, st, connection);
 		
 		return ar;
 	}
