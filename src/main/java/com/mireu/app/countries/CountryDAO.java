@@ -9,8 +9,6 @@ import java.util.List;
 
 import com.mireu.app.utils.DBConnection;
 
-import oracle.jdbc.proxy.annotation.Pre;
-
 public class CountryDAO {
 	
 	public List<CountryDTO> getList(CountryDTO countryDTO) throws Exception {
@@ -59,7 +57,7 @@ public class CountryDAO {
 		int result = 0;
 		Connection connection = DBConnection.getConnection();
 		String sql = "INSERT INTO COUNTRIES(COUNTRY_ID, COUNTRY_NAME, REGION_ID)"
-				+ " VALUES ?, ?, ?";
+				+ " VALUES (?, ?, ?)";
 		PreparedStatement st = connection.prepareStatement(sql);
 		
 		st.setString(1, countryDTO.getCountry_id());
