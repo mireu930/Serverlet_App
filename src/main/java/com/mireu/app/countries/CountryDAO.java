@@ -48,5 +48,22 @@ public class CountryDAO {
 		
 		return countryDTO;
 	}
+	
+	
+	public int add(CountryDTO countryDTO) throws Exception {
+		int result = 0;
+		Connection connection = DBConnection.getConnection();
+		String sql = "INSERT INTO COUNTRIES(COUNTRY_ID, COUNTRY_NAME, REGION_ID)"
+				+ " VALUES ?, ?, ?";
+		PreparedStatement st = connection.prepareStatement(sql);
+		st.setString(1, countryDTO.getCountry_id());
+		st.setString(2, countryDTO.getCountry_name());
+		st.setInt(3, countryDTO.getRegion_id());
+		
+		DBConnection.disConnection(connection, st);
+		
+		return result;
+	}
+	
 
 }
