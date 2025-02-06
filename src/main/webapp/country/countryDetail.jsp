@@ -1,29 +1,25 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.util.List"%>
 <%@page import="com.mireu.app.countries.CountryDTO"%>
 <%@page import="com.mireu.app.countries.CountryDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-    	CountryDAO countryDAO = new CountryDAO();
     	CountryDTO countryDTO = new CountryDTO();
+    	CountryDAO countryDAO = new CountryDAO();
     	
-    	List<CountryDTO> list = countryDAO.getList(countryDTO);
+    	String id = request.getParameter("country_id");
+    	countryDTO.setCountry_id(id);
+    	
+    	countryDTO = countryDAO.getDetail(countryDTO);
+    	
     %>
-    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	h3 {
-		text-align: center;
-	}
-
 	table {
 		border: 1px solid black;
-		margin: 0 auto;
 		border-collapse: collapse;
 	}
 	
@@ -33,7 +29,6 @@
 </style>
 </head>
 <body>
-	<h3>나라 리스트</h3>
 	<table>
 	<thead>
 		<tr>
@@ -43,16 +38,15 @@
 		</tr>
 	</thead>
 	<tbody>
-		<%for(int i=0;i<list.size();i++){ %>
 		<tr>
-		<td><a href = "./countryDetail.jsp?country_id=<%= list.get(i).getCountry_id()%>"><%= list.get(i).getCountry_id() %></a></td>
-		<td><%= list.get(i).getCountry_name()%></td>
-		<td><%= list.get(i).getRegion_id() %></td>
+			<td><%= countryDTO.getCountry_id() %></td>
+			<td><%= countryDTO.getCountry_name() %></td>
+			<td><%= countryDTO.getRegion_id() %></td>
+			
 		</tr>
-		<%} %>
 	</tbody>
 	</table>
-
-<a href = "./countryAdd.jsp">지역 추가하기</a>
+	
+	
 </body>
 </html>
