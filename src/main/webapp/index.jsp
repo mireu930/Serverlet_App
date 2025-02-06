@@ -16,7 +16,8 @@
 	<h1>Team Mate Add</h1>
 	<a href = "/departmets/departmentList.jsp">Department list</a><br>
 	<a href = "locations/locationList.jsp">Location list</a><br>
-	<a href = "./naver_sports/sports.jsp">½ºÆ÷Ã÷</a>
+	<a href = "./naver_sports/sports.jsp">½ºÆ÷Ã÷</a><br>
+	<a href = "./country/countryList.jsp">Country list</a>
 	
 </body>
 </html>
