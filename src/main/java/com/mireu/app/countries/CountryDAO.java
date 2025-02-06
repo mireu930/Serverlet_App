@@ -26,7 +26,7 @@ public class CountryDAO {
 			ar.add(countryDTO);
 		}
 		
-		DBConnection.disConnection(rs, st, connection);
+		DBConnection.disConnection(connection, st, rs);
 		
 		return ar;
 	}
@@ -44,6 +44,7 @@ public class CountryDAO {
 			countryDTO.setRegion_id(Integer.parseInt(rs.getString("REGION_ID")));
 		}
 		
+		DBConnection.disConnection(connection, st, rs);
 		
 		return countryDTO;
 	}
