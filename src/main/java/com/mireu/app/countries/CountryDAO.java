@@ -9,8 +9,6 @@ import java.util.List;
 
 import com.mireu.app.utils.DBConnection;
 
-import oracle.jdbc.proxy.annotation.Pre;
-
 public class CountryDAO {
 	
 	public List<CountryDTO> getList(CountryDTO countryDTO) throws Exception {
