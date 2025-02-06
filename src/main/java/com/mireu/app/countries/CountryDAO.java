@@ -56,9 +56,31 @@ public class CountryDAO {
 		String sql = "INSERT INTO COUNTRIES(COUNTRY_ID, COUNTRY_NAME, REGION_ID)"
 				+ " VALUES ?, ?, ?";
 		PreparedStatement st = connection.prepareStatement(sql);
+		
 		st.setString(1, countryDTO.getCountry_id());
 		st.setString(2, countryDTO.getCountry_name());
 		st.setInt(3, countryDTO.getRegion_id());
+		
+		result = st.executeUpdate();
+		
+		DBConnection.disConnection(connection, st);
+		
+		return result;
+	}
+	
+	
+	public int update(CountryDTO countryDTO) throws Exception {
+		int result = 0;
+		Connection connection = DBConnection.getConnection();
+		String sql = "UPDATE COUNTRIES SET COUNTRY_NAME = ?, REGION_ID = ?"
+				+ " WHERE COUNTRY_ID = ?";
+		PreparedStatement st = connection.prepareStatement(sql);
+		
+		st.setString(1, countryDTO.getCountry_name());
+		st.setInt(2, countryDTO.getRegion_id());
+		st.setString(3, countryDTO.getCountry_id());
+		
+		result = st.executeUpdate();
 		
 		DBConnection.disConnection(connection, st);
 		
