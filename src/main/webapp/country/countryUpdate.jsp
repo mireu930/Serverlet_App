@@ -10,6 +10,5 @@
 	<form action = "./countryUpdateProcess.jsp" method = "post">
 	
 	</form>
-
 </body>
 </html>

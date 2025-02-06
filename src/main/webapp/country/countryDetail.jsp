@@ -17,6 +17,16 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	table {
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+	
+	table th, table td {
+		border: 1px solid black;
+	}
+</style>
 </head>
 <body>
 	<table>
@@ -32,6 +42,7 @@
 			<td><%= countryDTO.getCountry_id() %></td>
 			<td><%= countryDTO.getCountry_name() %></td>
 			<td><%= countryDTO.getRegion_id() %></td>
+			
 		</tr>
 	</tbody>
 	</table>
