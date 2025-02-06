@@ -7,19 +7,15 @@
     	CountryDAO countryDAO = new CountryDAO();
     	
     	String id = request.getParameter("country_id");
-    	String name = request.getParameter("country_name");
-    	String region = request.getParameter("region_id");
     	
     	countryDTO.setCountry_id(id);
-    	countryDTO.setCountry_name(name);
-    	countryDTO.setRegion_id(Integer.parseInt(region));
     	
-    	int result = countryDAO.add(countryDTO);
+    	int result = countryDAO.delete(countryDTO);
     	
     	String message = "실패했습니다.";
     	
-    	if(result>0){
-    		message = "추가 성공했습니다.";
+    	if(result > 0) {
+    		message = "삭제성공했습니다.";	
     	}
     %>
 <!DOCTYPE html>

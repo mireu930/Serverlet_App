@@ -42,11 +42,13 @@
 			<td><%= countryDTO.getCountry_id() %></td>
 			<td><%= countryDTO.getCountry_name() %></td>
 			<td><%= countryDTO.getRegion_id() %></td>
-			
+			<td><a href = ./countryUpdate.jsp?country_id=<%= countryDTO.getCountry_id() %>>수정</a></td>
+			<td><a href = ./countryDelete.jsp?country_id=<%= countryDTO.getCountry_id() %>>삭제</a></td>
 		</tr>
 	</tbody>
 	</table>
-	
+	<a href ="/">Home</a>
+	<a href ="./countryList.jsp">list</a>
 	
 </body>
 </html>
