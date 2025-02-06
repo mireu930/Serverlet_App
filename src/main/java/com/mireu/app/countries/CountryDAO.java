@@ -36,12 +36,15 @@ public class CountryDAO {
 		Connection connection = DBConnection.getConnection();
 		String sql = "SELECT * FROM COUNTRIES WHERE COUNTRY_ID = ?";
 		PreparedStatement st = connection.prepareStatement(sql);
+		
+		st.setString(1, countryDTO.getCountry_id());
+		
 		ResultSet rs = st.executeQuery();
 		
 		if(rs.next()) {
 			countryDTO.setCountry_id(rs.getString("COUNTRY_ID"));
 			countryDTO.setCountry_name(rs.getString("COUNTRY_NAME"));
-			countryDTO.setRegion_id(Integer.parseInt(rs.getString("REGION_ID")));
+			countryDTO.setRegion_id(rs.getInt("REGION_ID"));
 		}
 		
 		DBConnection.disConnection(connection, st, rs);
@@ -87,5 +90,13 @@ public class CountryDAO {
 		return result;
 	}
 	
+	public int delete(CountryDTO countryDTO) throws Exception {
+		int result = 0;
+		Connection connection = DBConnection.getConnection();
+		
+		
+		
+		return result;
+	}
 
 }
