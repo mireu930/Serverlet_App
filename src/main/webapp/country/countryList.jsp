@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page import="com.mireu.app.countries.CountryDTO"%>
 <%@page import="com.mireu.app.countries.CountryDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,9 +8,7 @@
     	CountryDAO countryDAO = new CountryDAO();
     	CountryDTO countryDTO = new CountryDTO();
     	
-    	countryDTO.setCountry_id("AR");
-    	
-    	
+    	List<CountryDTO> list = countryDAO.getList(countryDTO);
     %>
     
 <!DOCTYPE html>
@@ -43,9 +43,13 @@
 		</tr>
 	</thead>
 	<tbody>
+		<%for(int i=0;i<list.size();i++){ %>
 		<tr>
-		<td>1</td><td>2</td><td>3</td>
+		<td><a href = "./countryDetail.jsp?country_id=<%= list.get(i).getCountry_id()%>"><%= list.get(i).getCountry_id() %></a></td>
+		<td><%= list.get(i).getCountry_name()%></td>
+		<td><%= list.get(i).getRegion_id() %></td>
 		</tr>
+		<%} %>
 	</tbody>
 	</table>
 
