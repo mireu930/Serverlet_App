@@ -13,26 +13,16 @@ List<LocationDTO> list = dao.getList();
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-table {
-	border: 1px solid black;
-	margin: 0 auto;
-	border-collapse: collapse;
-}
-
-table td, table th {
-	border: 1px solid black;
-}
-
-tbody a {
-	text-decoration: none;
-	color: black;
-}
-</style>
+<link rel="stylesheet" href="/resources/css/style.css">
+<link rel="stylesheet" href="/resources/css/reset.css">
+<link rel="stylesheet" href="/resources/css/list.css">
 </head>
 <body>
-	<h1>Location list</h1>
-	<table>
+	<%@ include file="/template/header.jsp" %>
+  <section class = "wrap_left content">
+    <%@ include file = "/template/nav.jsp" %>
+    <nav class = " right content_right">
+		<table>
 		<thead>
 			<tr>
 				<th>지역아이디</th>
@@ -40,16 +30,24 @@ tbody a {
 			</tr>
 		</thead>
 		<tbody>
-			<%for (int i = 0; i < list.size(); i++) {%>
+			<% for(int i=0;i<list.size();i++){%>
 			<tr>
 				<td><a
-					href="locationDetail.jsp?location_id=<%= list.get(i).getLocation_id()%>"><%=list.get(i).getLocation_id()%></a></td>
-				<td>
-					<%= list.get(i).getStreeat_address()%></td>
+					href="locationDetail.jsp?location_id=<%= list.get(i).getLocation_id()%>">
+						<%= list.get(i).getLocation_id()%></a></td>
+						<td>
+							<%= list.get(i).getStreeat_address()%></td>
 			</tr>
 			<%}%>
 		</tbody>
+		<tfoot>
+			<tr>
+				<td><a href="./locationAdd.jsp">지역등록</a></td>
+			</tr>
+		</tfoot>
 	</table>
-	<a href = "./locationAdd.jsp">지역등록</a>
+	 </nav>
+  </section>
+	 <%@ include file = "../template/footer.jsp" %>
 </body>
 </html>

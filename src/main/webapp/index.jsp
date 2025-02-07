@@ -1,23 +1,22 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style>
-	a {
-		text-decoration: none;
-	}
-</style>
+<link rel="stylesheet" href="/resources/css/style.css">
+<link rel="stylesheet" href="/resources/css/reset.css">
 </head>
 <body>
-	<h1>Welcome Home page</h1>
-	<h1>Team Mate Add</h1>
-	<a href = "/departmets/departmentList.jsp">Department list</a><br>
-	<a href = "locations/locationList.jsp">Location list</a><br>
-	<a href = "./naver_sports/sports.jsp">스포츠</a><br>
-	<a href = "./country/countryList.jsp">Country list</a>
-	
+	<%@ include file="/template/header.jsp" %>
+  <section class = "wrap_left content">
+	<%@ include file = "/template/nav.jsp" %>
+    <nav class = " right content_right">
+
+    </nav>
+  </section>
+  <%@ include file = "./template/footer.jsp" %>
+
 </body>
 </html>
