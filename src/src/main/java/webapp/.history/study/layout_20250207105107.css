@@ -1,0 +1,21 @@
+header {
+  width: 100%;
+  height: 70%;
+  background-color: gray;
+}
+
+header:first-child {
+  width: 20%;
+}
+
+section {
+  width: 100%;
+  height: 500px;
+  background-color: red;
+}
+
+footer {
+  width: 100%;
+  height: 150px;
+  background-color: black;
+}

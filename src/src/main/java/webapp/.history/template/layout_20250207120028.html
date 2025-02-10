@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    header {
+  width: 100%;
+  height: 70px;
+  /* background-color: gray; */
+}
+
+.wrap_left{
+  display: flex;
+} 
+
+.left {
+  width: 25%;
+  height: 100%;
+
+}
+
+.right {
+  width: 75%;
+  height: 100%;
+}
+
+.logo {
+  /* background-color:aqua; */
+  box-sizing: border-box;
+  /* padding: 20px 60px; */
+}
+
+.logo img {
+  display: block;
+  margin: 30px auto;
+}
+
+.menu {
+  background-color:gray;
+
+}
+
+.content {
+  width: 100%;
+  height: 500px;
+  /* background-color: red; */
+}
+
+.content_left {
+  background-color:yellow;
+  padding: auto 0;
+}
+
+.content_left ul {
+  list-style: none;
+  border: 1px black solid;
+  margin: 20px;
+  /* text-align: center; */
+  padding: 0;
+}
+
+.content_left ul li {
+  margin: 30px 0;
+  /* border: 1px black solid; */
+  display: block;
+  text-align: center;
+}
+
+.content_right {
+  background-color:blue
+}
+
+footer {
+  width: 100%;
+  height: 150px;
+  background-color: black;
+}
+  </style>
+</head>
+<body>
+  <header class = "wrap_left">
+    <div class = "left logo" >
+      <img src = "/naver_sports/images/네이버.svg">
+    </div>
+    <div class = "right menu">
+
+    </div>
+  </header>
+  <section class = "wrap_left content">
+    <div class = "left content_left">
+      <ul>
+        <li>부서관리</li>
+        <li>지역관리</li>
+        <li>나라관리</li>
+        <li>대륙관리</li>
+      </ul>
+    </div>
+    <div class = " right content_right">
+
+    </div>
+  </section>
+  <footer class = "wrap_left">
+    <div class = "left footer_left">
+
+    </div>
+    <div class = "right footer_right">
+
+    </div>
+  </footer>
+
+</body>
+</html>
