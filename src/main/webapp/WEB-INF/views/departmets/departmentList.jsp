@@ -20,9 +20,9 @@
 <link rel="stylesheet" href="/resources/css/list.css">
 </head>
 <body>
-<%@ include file="/template/header.jsp" %>
+<%@ include file="../template/header.jsp" %>
   <section class = "wrap_left content">
-    <%@ include file = "/template/nav.jsp" %>
+    <%@ include file = "../template/nav.jsp" %>
     <nav class = " right content_right">
 		<table>
 		<thead>

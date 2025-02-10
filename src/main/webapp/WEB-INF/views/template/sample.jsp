@@ -12,7 +12,7 @@ List<DepartmentDTO> ar = dao.getList();
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<%@ include file="/template/common.jsp"%>
+<%@ include file="WEB-INF/views/template/common.jsp"%>
 <style>
 table {
 	margin: 0 auto;
@@ -52,9 +52,9 @@ tbody tr {
 
 </head>
 <body>
-	<%@ include file="/template/header.jsp"%>
+	<%@ include file="WEB-INF/views/template/header.jsp"%>
 	<section class="wrap_left content">
-		<%@ include file="/template/nav.jsp"%>
+		<%@ include file="WEB-INF/views/template/nav.jsp"%>
 		<nav class=" right content_right">
 			<table>
 				<thead>
@@ -79,6 +79,6 @@ tbody tr {
 			</table>
 		</nav>
 	</section>
-	<%@ include file="/template/footer.jsp"%>
+	<%@ include file="WEB-INF/views/template/footer.jsp"%>
 </body>
 </html>

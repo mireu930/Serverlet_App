@@ -9,14 +9,14 @@
 <link rel="stylesheet" href="/resources/css/reset.css">
 </head>
 <body>
-	<%@ include file="/template/header.jsp" %>
+	<%@ include file="/WEB-INF/views/template/header.jsp" %>
   <section class = "wrap_left content">
-	<%@ include file = "/template/nav.jsp" %>
+	<%@ include file = "/WEB-INF/views/template/nav.jsp" %>
     <nav class = " right content_right">
 
     </nav>
   </section>
-  <%@ include file = "./template/footer.jsp" %>
+  <%@ include file = "/WEB-INF/views/template/footer.jsp" %>
 
 </body>
 </html>
