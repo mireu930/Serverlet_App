@@ -6,100 +6,113 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.mireu.app.utils.DBConnection;
+import com.root.app.departments.DepartmentDTO;
+import com.root.app.utils.DBConnection;
 
 public class LocationDAO {
+	
 	public List<LocationDTO> getList() throws Exception {
-		System.out.println("지역정보 리스트 조회");
 		
-		Connection con = DBConnection.getConnection();
+		Connection connection = DBConnection.getConnection();
 		String sql = "SELECT * FROM LOCATIONS";
-		PreparedStatement st = con.prepareStatement(sql);
-		ResultSet resultSet = st.executeQuery();
+		PreparedStatement st = connection.prepareStatement(sql);
 		
-		List<LocationDTO> list = new ArrayList<LocationDTO>();
+		ResultSet rs = st.executeQuery();
 		
-		while(resultSet.next()) {
-			LocationDTO dto = new LocationDTO();
-			dto.setLocation_id(resultSet.getInt(1));
-			dto.setStreeat_address(resultSet.getString(2));
-			dto.setPostal_code(resultSet.getString(3));
-			
-			list.add(dto);
+		List<LocationDTO> ar = new ArrayList<LocationDTO>();
+		
+		while(rs.next()) {
+			LocationDTO locationDTO = new LocationDTO();
+			locationDTO.setLocation_id(rs.getInt("LOCATION_ID"));
+			locationDTO.setStreet_address(rs.getString("STREET_ADDRESS"));
+			locationDTO.setPostal_code(rs.getString("POSTAL_CODE"));
+			locationDTO.setCity(rs.getString("CITY"));
+			locationDTO.setState_province(rs.getString("STATE_PROVINCE"));
+			locationDTO.setCountry_id(rs.getString("COUNTRY_ID"));
+			ar.add(locationDTO);
 		}
-		DBConnection.disConnection(con, st, resultSet);
-		return list;
+		
+		DBConnection.disConnect(rs, st, connection);
+		
+		return ar;
+		
 	}
 	
 	public LocationDTO getDetail(LocationDTO locationDTO) throws Exception {
-		System.out.println("한 지역정보 조회");
 		
-		Connection con = DBConnection.getConnection();
-		String sql = "SELECT * FROM LOCATIONS WHERE LOCATION_ID = ? ";
-		PreparedStatement st = con.prepareStatement(sql);
-		
+		Connection connection = DBConnection.getConnection();
+		String sql = "SELECT * FROM LOCATIONS WHERE LOCATION_ID = ?";
+		PreparedStatement st = connection.prepareStatement(sql);
 		st.setInt(1, locationDTO.getLocation_id());
+		ResultSet rs = st.executeQuery();
 		
-		ResultSet set = st.executeQuery();
+		locationDTO = new LocationDTO();
 		
-		
-		if(set.next()) {
-			locationDTO.setLocation_id(set.getInt(1));
-			locationDTO.setStreeat_address(set.getString(2));
-			locationDTO.setPostal_code(set.getString(3));
-		} else {
+		if(rs.next()) {
+			locationDTO.setLocation_id(rs.getInt("LOCATION_ID"));
+			locationDTO.setStreet_address(rs.getString("STREET_ADDRESS"));
+			locationDTO.setPostal_code(rs.getString("POSTAL_CODE"));
+			locationDTO.setCity(rs.getString("CITY"));
+			locationDTO.setState_province(rs.getString("STATE_PROVINCE"));
+			locationDTO.setCountry_id(rs.getString("COUNTRY_ID"));
+		}else {
 			locationDTO = null;
 		}
 		
-		DBConnection.disConnection(con, st, set);
+		DBConnection.disConnect(rs, st, connection);
+		
 		return locationDTO;
+		
 	}
 	
 	public int add(LocationDTO locationDTO) throws Exception {
-		Connection con = DBConnection.getConnection();
-		String sql = "INSERT INTO LOCATIONS (LOCATION_ID, STREET_ADDRESS, POSTAL_CODE, CITY)"
-				+ "VALUES (LOCATIONS_SEQ.NEXTVAL,?,?,?)";
-		PreparedStatement st = con.prepareStatement(sql);
-		
-		st.setString(1, locationDTO.getStreeat_address());
+		int result = 0;
+		Connection connection = DBConnection.getConnection();
+		String sql = "INSERT INTO LOCATIONS(LOCATION_ID, STREET_ADDRESS, POSTAL_CODE, CITY, STATE_PROVINCE, COUNTRY_ID)"
+				+ " VALUES (LOCATIONS_SEQ.NEXTVAL, ?, ?, ?, ?, ?)";
+		PreparedStatement st = connection.prepareStatement(sql);
+		st.setString(1, locationDTO.getStreet_address());
 		st.setString(2, locationDTO.getPostal_code());
 		st.setString(3, locationDTO.getCity());
+		st.setString(4, locationDTO.getState_province());
+		st.setString(5, locationDTO.getCountry_id());
 		
-		int result = st.executeUpdate();
-		
-		DBConnection.disConnection(con, st);
+		result = st.executeUpdate();
 		
 		return result;
 	}
 	
-	public int update(LocationDTO locationDTO) throws Exception {
-		Connection con = DBConnection.getConnection();
-		String sql = "UPDATE LOCATIONS SET STREET_ADDRESS = ?, POSTAL_CODE = ? "
-				+ "WHERE LOCATION_ID = ? ";
-		PreparedStatement st = con.prepareStatement(sql);
-		
-		st.setString(1, locationDTO.getStreeat_address());
-		st.setString(2, locationDTO.getPostal_code());
-		st.setInt(3, locationDTO.getLocation_id());
-		
-		int result = st.executeUpdate();
-		
-		DBConnection.disConnection(con, st);
-		
-		return result;
-	}
 	
 	public int delete(LocationDTO locationDTO) throws Exception {
-		Connection con = DBConnection.getConnection();
-		String sql = "DELETE LOCATIONS WHERE LOCATION_ID = ? ";
-		PreparedStatement st = con.prepareStatement(sql);
-		
+		int result = 0;
+		Connection connection = DBConnection.getConnection();
+		String sql = "DELETE LOCATIONS WHERE LOCATION_ID = ?";
+		PreparedStatement st = connection.prepareStatement(sql);
 		st.setInt(1, locationDTO.getLocation_id());
+		result = st.executeUpdate();
 		
-		int result = st.executeUpdate();
-		
-		DBConnection.disConnection(con, st);
+		DBConnection.disConnect(st, connection);
 		
 		return result;
 	}
+	
+	
+	public int update(LocationDTO locationDTO) throws Exception {
+		int result = 0;
+		Connection connection = DBConnection.getConnection();
+		String sql = "UPDATE LOCATIONS SET STREET_ADDRESS = ?, POSTAL_CODE = ?, STATE_PROVINCE = ?,"
+				+ " CITY = ?, COUNTRY_ID = ? WHERE LOCATION_ID = ?";
+		PreparedStatement st = connection.prepareStatement(sql);
+		st.setString(1, locationDTO.getStreet_address());
+		st.setString(2, locationDTO.getPostal_code());
+		st.setString(3, locationDTO.getState_province());
+		st.setString(4, locationDTO.getCity());
+		st.setString(5, locationDTO.getCountry_id());
+		st.setInt(6, locationDTO.getLocation_id());
+		
+		result = st.executeUpdate();
+		
+		return result;
+	}
+
 }
