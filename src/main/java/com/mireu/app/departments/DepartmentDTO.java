@@ -1,10 +1,12 @@
 package com.mireu.app.departments;
 
 public class DepartmentDTO {
+	
 	private long department_id;
 	private String department_name;
 	private long manager_id;
 	private long location_id;
+	
 	
 	public long getDepartment_id() {
 		return department_id;
@@ -32,4 +34,5 @@ public class DepartmentDTO {
 	}
 	
 	
+
 }
